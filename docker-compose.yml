@@ -1,0 +1,17 @@
+services:
+  sub-edit-helper:
+    image: evlst/sub-edit-helper
+    container_name: sub-edit-helper
+    restart: always
+    ports:
+      - "17080:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATA_DIR=/app/data
+      # Optional: override encryption key (64 hex chars = 32 bytes)
+      # - ENCRYPTION_KEY=
+      # Optional: force-reset admin password
+      # - ADMIN_PASSWORD=
